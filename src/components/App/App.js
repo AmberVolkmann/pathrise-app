@@ -1,15 +1,34 @@
+import React, {Component} from 'react';
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './App.css';
+import AllCompanies from '../AllCompanies/AllCompanies';
 import CompanyCard from '../CompanyCard/CompanyCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <CompanyCard />
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <Routes>
+      <Router>
+        <div>
+          {/* <Switch> */}
+            <Route
+              exact
+              path="/about"
+              component={AllCompanies}
+            />
+          {/* </Switch> */}
+        </div>
+      </Router>
+      </Routes>
+  )}
 }
 
-export default App;
+export default connect()(App);
